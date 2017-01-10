@@ -1,20 +1,20 @@
 package ru.mikhaylov.xo.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 /**
  * Created by Anton on 10.01.2017.
  */
-class PlayerTest {
+public class PlayerTest {
     @Test
-    void getName() {
+    public void getName() throws Exception {
 
     }
 
     @Test
-    void getFigure() {
+    public void getFigure() throws Exception {
 
     }
 
