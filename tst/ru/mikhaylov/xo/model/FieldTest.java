@@ -1,6 +1,7 @@
 package ru.mikhaylov.xo.model;
 
 import org.junit.Test;
+import ru.mikhaylov.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
 
@@ -20,12 +21,33 @@ public class FieldTest {
     @Test
     public void setFigure() throws Exception {
         final Field field = new Field();
-        final Point inputpoint = new Point(0,0);
-        final Figure inputfigure = Figure.O;
+        final Point inputPoint = new Point(0,0);
+        final Figure inputFigure = Figure.O;
 
-        assertEquals(inputpoint, inputfigure);
-        final Figure actualFigure = field.getFigure(inputpoint);
-        assertEquals(inputfigure,actualFigure);
+        assertEquals(inputPoint, inputFigure);
+        final Figure actualFigure = field.getFigure(inputPoint);
+        assertEquals(inputFigure,actualFigure);
+    }
+
+    @Test
+    public void setFigureWhenFigureIsNotSet() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point(0,0);
+
+        final Figure actualFigure = field.getFigure(inputPoint);
+        assertNull(actualFigure);
+    }
+
+    @Test
+    public void setFigureWhenXIsLessThenZero() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point(-1,0);
+
+        try {
+            field.getFigure(inputPoint);
+            fail();
+        }catch (final InvalidPointException e){}
+
     }
 
 }
