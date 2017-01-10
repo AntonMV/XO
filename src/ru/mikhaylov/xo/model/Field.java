@@ -5,9 +5,6 @@ import ru.mikhaylov.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
 
-/**
- * Created by Anton on 10.01.2017.
- */
 public class Field {
 
     private final int FIELD_SIZE = 3;
