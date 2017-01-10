@@ -7,9 +7,6 @@ import java.awt.*;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Anton on 10.01.2017.
- */
 public class FieldTest {
     @Test
     public void getSize() throws Exception {
@@ -24,7 +21,7 @@ public class FieldTest {
         final Point inputPoint = new Point(0,0);
         final Figure inputFigure = Figure.O;
 
-        assertEquals(inputPoint, inputFigure);
+        field.setFigure(inputPoint, inputFigure);
         final Figure actualFigure = field.getFigure(inputPoint);
         assertEquals(inputFigure,actualFigure);
     }
@@ -46,7 +43,43 @@ public class FieldTest {
         try {
             field.getFigure(inputPoint);
             fail();
-        }catch (final InvalidPointException e){}
+        }catch (final InvalidPointException ignored){}
+
+    }
+
+    @Test
+    public void setFigureWhenYIsLessThenZero() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point(0,-1);
+
+        try {
+            field.getFigure(inputPoint);
+            fail();
+        }catch (final InvalidPointException ignored){}
+
+    }
+
+    @Test
+    public void setFigureWhenXIsMoreThenSize() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point( field.getSize() + 1,0);
+
+        try {
+            field.getFigure(inputPoint);
+            fail();
+        }catch (final InvalidPointException ignored){}
+
+    }
+
+    @Test
+    public void setFigureWhenYIsMoreThenSize() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point( 0,field.getSize() + 1);
+
+        try {
+            field.getFigure(inputPoint);
+            fail();
+        }catch (final InvalidPointException ignored){}
 
     }
 
