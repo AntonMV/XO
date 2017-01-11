@@ -15,7 +15,7 @@ public class WinnerControllerTest {
     @Test
     public void getWinnerWhenWinnerRow() throws Exception {
         final WinnerController winnerController = new WinnerController();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++){
             final Field field = new Field(3);
             field.setFigure(new Point(i,0), Figure.X);
             field.setFigure(new Point(i,1), Figure.X);
@@ -27,7 +27,7 @@ public class WinnerControllerTest {
     @Test
     public void getWinnerWhenWinnerColumn() throws Exception {
         final WinnerController winnerController = new WinnerController();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++){
             final Field field = new Field(3);
             field.setFigure(new Point(0, i), Figure.X);
             field.setFigure(new Point(1, i), Figure.X);
