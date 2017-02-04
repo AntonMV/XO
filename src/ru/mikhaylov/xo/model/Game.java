@@ -1,6 +1,8 @@
 package ru.mikhaylov.xo.model;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class Game<F> implements Iterable<Player>{
 
@@ -32,28 +34,21 @@ public class Game<F> implements Iterable<Player>{
 
     @Override
     public Iterator<Player> iterator() {
-        return new PlayerIterator(players);
+        return new PlayerIterator();
     }
 
-    private static class PlayerIterator implements Iterator<Player>{
+    private class PlayerIterator implements Iterator<Player>{
 
         private int index = 0;
 
-        private final Player[] players;
-
-        private PlayerIterator(final Player[] players) {
-            this.players = players;
-        }
-
-
         @Override
         public boolean hasNext() {
-            return this.players.length > index;
+            return Game.this.players.length > index;
         }
 
         @Override
         public Player next() {
-            return this.players[index++];
+            return Game.this.players[index++];
         }
     }
 }
