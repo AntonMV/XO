@@ -6,6 +6,7 @@ import ru.mikhaylov.xo.controllers.WinnerController;
 import ru.mikhaylov.xo.model.Field;
 import ru.mikhaylov.xo.model.Figure;
 import ru.mikhaylov.xo.model.Game;
+import ru.mikhaylov.xo.model.Player;
 import ru.mikhaylov.xo.model.exceptions.AlreadyOccupiedException;
 import ru.mikhaylov.xo.model.exceptions.InvalidPointException;
 
@@ -23,6 +24,13 @@ public class ConsoleView {
 
     public void show(final Game<Figure> game){
         System.out.format("Game name: %s\n", game.getName());
+
+        System.out.println("Players:");
+
+        for (Player player: game) {
+            System.out.format("Player name: %s figure: %s\n", player.getName(), player.getFigure());
+        }
+
         final Field field = game.getField();
         for (int x = 0; x < field.getSize(); x++) {
             if (x != 0) printSeparator();
